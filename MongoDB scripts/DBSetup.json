@@ -1,0 +1,594 @@
+// use UniversityTeachersDB;
+db.createCollection("WorkPlaces");
+db.createCollection("Positions");
+db.createCollection("Disciplines");
+db.createCollection("Streets");
+db.createCollection("HomeAddresses");
+db.createCollection("Teachers");
+db.createCollection("TeachersDisciplines");
+db.createCollection("TeachersCharacteristics");
+
+db.WorkPlaces.insertOne(
+  {
+    "_id": 1,
+    "placeName": "Кафедра алгебри та інформатики",
+    "address": "вул. Університетська, 28, 1 поверх"
+  }
+);
+db.WorkPlaces.insertOne(
+  {
+    "_id": 2,
+    "placeName": "Кафедра математичного аналізу",
+    "address": "вул. Університетська, 28, 2 поверх"
+  }
+);
+db.WorkPlaces.insertOne(
+  {
+    "_id": 3,
+    "placeName": "Кафедра прикладної математики та інформаційних технологій",
+    "address": "вул. Університетська, 28, 3 поверх"
+  }
+);
+db.WorkPlaces.insertOne(
+  {
+    "_id": 4,
+    "placeName": "Кафедра історії та культури української мови",
+    "address": "вул. Коцюбиинського 2, 6 корпус ЧНУ"
+  }
+);
+db.WorkPlaces.insertOne(
+  {
+    "_id": 5,
+    "placeName": "Кафедра теоретичної фізики та комп`ютерного моделювання",
+    "address": "вул. Рівненська, 16, 9 корпус ЧНУ"
+  }
+);
+db.WorkPlaces.insertOne(
+  {
+    "_id": 6,
+    "placeName": "Кафедра комп`ютерних наук",
+    "address": "вул. Рівненська, 16, 8 корпус ЧНУ"
+  }
+);
+
+
+db.Positions.insertOne(
+  {
+    "_id": 1,
+    "name": "Асистент",
+    "salaryPerHour": 200
+  }
+);
+db.Positions.insertOne(
+  {
+    "_id": 2,
+    "name": "Доцент",
+    "salaryPerHour": 300
+  }
+);
+db.Positions.insertOne(
+  {
+    "_id": 3,
+    "name": "Професор",
+    "salaryPerHour": 400
+  }
+);
+
+
+db.Disciplines.insertOne(
+  {
+    "_id": 1,
+    "name": "Фізика"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 2,
+    "name": "Вища метематика"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 3,
+    "name": "Технології захисту інформації"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 4,
+    "name": "Українська мова(за проф спрямуванням)"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 5,
+    "name": "Прикладна математика"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 6,
+    "name": "Основи WEB-технологій"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 7,
+    "name": "Історія україни"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 8,
+    "name": "Математичні методи дослідження операцій"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 9,
+    "name": "Дискретна математика"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 10,
+    "name": "Теорія ймовірності"
+  }
+);
+db.Disciplines.insertOne(
+  {
+    "_id": 11,
+    "name": "Математична статистика"
+  }
+);
+
+
+db.Streets.insertOne(
+  {
+    "_id": 1,
+    "streetName": "вул. Університетська"
+  }
+);
+db.Streets.insertOne(
+  {
+    "_id": 2,
+    "streetName": "вул. Головна"
+  }
+);
+db.Streets.insertOne(
+  {
+    "_id": 3,
+    "streetName": "вул. Проспект незалежності"
+  }
+);
+db.Streets.insertOne(
+  {
+    "_id": 4,
+    "streetName": "вул. Івана Богуна"
+  }
+);
+db.Streets.insertOne(
+  {
+    "_id": 5,
+    "streetName": "вул. Поштова"
+  }
+);
+db.Streets.insertOne(
+  {
+    "_id": 6,
+    "streetName": "вул. Богдана Хмельницького"
+  }
+);
+db.Streets.insertOne(
+  {
+    "_id": 7,
+    "streetName": "вул. Лесі Українки"
+  }
+);
+db.Streets.insertOne(
+  {
+    "_id": 8,
+    "streetName": "вул. Вірменська"
+  }
+);
+
+
+db.HomeAddresses.insertOne(
+  {
+    "_id": 1,
+    "streetId": 1,
+    "building": "17-A",
+    "flatNum": 5
+  }
+);
+db.HomeAddresses.insertOne(
+  {
+    "_id": 2,
+    "streetId": 2,
+    "building": "103-А",
+    "flatNum": 71
+  }
+);
+db.HomeAddresses.insertOne(
+  {
+    "_id": 3,
+    "streetId": 3,
+    "building": "21-Г",
+    "flatNum": 19
+  }
+);
+db.HomeAddresses.insertOne(
+  {
+    "_id": 4,
+    "streetId": 1,
+    "building": "29",
+    "flatNum": 12
+  }
+);
+db.HomeAddresses.insertOne(
+  {
+    "_id": 5,
+    "streetId": 4,
+    "building": "5",
+    "flatNum": null
+  }
+);
+db.HomeAddresses.insertOne(
+  {
+    "_id": 6,
+    "streetId": 5,
+    "building": "33-Б",
+    "flatNum": null
+  }
+);
+db.HomeAddresses.insertOne(
+  {
+    "_id": 7,
+    "streetId": 6,
+    "building": "24",
+    "flatNum": 3
+  }
+);
+db.HomeAddresses.insertOne(
+  {
+    "_id": 8,
+    "streetId": 3,
+    "building": "108",
+    "flatNum": 80
+  }
+);
+db.HomeAddresses.insertOne(
+  {
+    "_id": 9,
+    "streetId": 7,
+    "building": "4-В",
+    "flatNum": 16
+  }
+);
+db.HomeAddresses.insertOne(
+  {
+    "_id": 10,
+    "streetId": 8,
+    "building": "9",
+    "flatNum": null
+  }
+);
+
+
+db.Teachers.insertOne(
+  {
+    "_id": 1,
+    "surname": "Петренко",
+    "name": "Іван",
+    "patronymic": "Валерійович",
+    "phoneNum": "380955236263",
+    "homeAddressId": 1,
+    "workPlaceId": 4,
+    "positionId": 3
+  }
+);
+db.Teachers.insertOne(
+  {
+    "_id": 2,
+    "surname": "Федирчик",
+    "name": "Анатолій",
+    "patronymic": "Олексійович",
+    "phoneNum": "380505634745",
+    "homeAddressId": 2,
+    "workPlaceId": 1,
+    "positionId": 3
+  }
+);
+db.Teachers.insertOne(
+  {
+    "_id": 3,
+    "surname": "Волощук",
+    "name": "Михайло",
+    "patronymic": "Степанович",
+    "phoneNum": "380952771289",
+    "homeAddressId": 3,
+    "workPlaceId": 2,
+    "positionId": 3
+  }
+);
+db.Teachers.insertOne(
+  {
+    "_id": 4,
+    "surname": "Кравченко",
+    "name": "Анастасія",
+    "patronymic": "Володимирівна",
+    "phoneNum": "380665646733",
+    "homeAddressId": 4,
+    "workPlaceId": 1,
+    "positionId": 2
+  }
+);
+db.Teachers.insertOne(
+  {
+    "_id": 5,
+    "surname": "Філіпчук",
+    "name": "Валентин",
+    "patronymic": "Дмитрович",
+    "phoneNum": "380507984356",
+    "homeAddressId": 5,
+    "workPlaceId": 3,
+    "positionId": 2
+  }
+);
+db.Teachers.insertOne(
+  {
+    "_id": 6,
+    "surname": "Сокирчук",
+    "name": "Павло",
+    "patronymic": "Валерійович",
+    "phoneNum": "380682759343",
+    "homeAddressId": 6,
+    "workPlaceId": 5,
+    "positionId": 2
+  }
+);
+db.Teachers.insertOne(
+  {
+    "_id": 7,
+    "surname": "Дмитрук",
+    "name": "Ірина",
+    "patronymic": "Михайлівна",
+    "phoneNum": "380956787982",
+    "homeAddressId": 7,
+    "workPlaceId": 2,
+    "positionId": 2
+  }
+);
+db.Teachers.insertOne(
+  {
+    "_id": 8,
+    "surname": "Левченко",
+    "name": "Назарій",
+    "patronymic": "Юрійович",
+    "phoneNum": "380953325467",
+    "homeAddressId": 8,
+    "workPlaceId": 2,
+    "positionId": 1
+  }
+);
+db.Teachers.insertOne(
+  {
+    "_id": 9,
+    "surname": "Остапченко",
+    "name": "Олександр",
+    "patronymic": "Вікторович",
+    "phoneNum": "380508954678",
+    "homeAddressId": 9,
+    "workPlaceId": 1,
+    "positionId": 1
+  }
+);
+db.Teachers.insertOne(
+  {
+    "_id": 10,
+    "surname": "Михальчук",
+    "name": "Йосиф",
+    "patronymic": "Сергійович",
+    "phoneNum": "380661203919",
+    "homeAddressId": 10,
+    "workPlaceId": 6,
+    "positionId": 1
+  }
+);
+
+
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 1,
+    "disciplineId": 4,
+    "numOfHours": 60
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 1,
+    "disciplineId": 7,
+    "numOfHours": 120
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 2,
+    "disciplineId": 2,
+    "numOfHours": 50
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 3,
+    "disciplineId": 2,
+    "numOfHours": 20
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 3,
+    "disciplineId": 8,
+    "numOfHours": 90
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 4,
+    "disciplineId": 9,
+    "numOfHours": 60
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 5,
+    "disciplineId": 10,
+    "numOfHours": 80
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 5,
+    "disciplineId": 9,
+    "numOfHours": 50
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 6,
+    "disciplineId": 1,
+    "numOfHours": 120
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 6,
+    "disciplineId": 2,
+    "numOfHours": 50
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 6,
+    "disciplineId": 5,
+    "numOfHours": 80
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 7,
+    "disciplineId": 2,
+    "numOfHours": 60
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 8,
+    "disciplineId": 10,
+    "numOfHours": 120
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 8,
+    "disciplineId": 11,
+    "numOfHours": 20
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 9,
+    "disciplineId": 9,
+    "numOfHours": 60
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 9,
+    "disciplineId": 6,
+    "numOfHours": 50
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 9,
+    "disciplineId": 3,
+    "numOfHours": 30
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 10,
+    "disciplineId": 3,
+    "numOfHours": 30
+  }
+);
+db.TeachersDisciplines.insertOne(
+  {
+    "teacherId": 10,
+    "disciplineId": 6,
+    "numOfHours": 60
+  }
+);
+
+
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 1,
+    "characteristic": 'Професор кафедри історії та культури української мови. Доктор філологічних наук. \n Наукова біографія: СКАБ Мар’ян Стефанович народився 20 травня 1958 року в Чернівцях. Навчався в Чернівецькій середній школі № 23 (1965–1975) та Чернівецькому державному університеті (1975–1980). Упродовж 1980–89 років він працював у Полтавському педагогічному інституті ім. В. Г. Короленка (асистент, з 1984 – старший викладач кафедри української мови; з 1986 – старший викладач, доцент кафедри загального та російського мовознавства; з 1989 – доцент кафедри української мови). У 1983–1987 роках М. С. Скаб заочно навчався в аспірантурі при Інституті мовознавства Академії наук України імені О. О. Потебні і 1988 року захистив кандидатську дисертацію під назвою „Семантично граматична структура українського вокатива” (науковий керівник – І. Р. Вихованець).'
+  }
+);
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 2,
+    "characteristic": 'Професор, доктор фіз.-мат. наук, Професор кафедри алгебри та інформатики. \nГородецький В.В. народився у 1958 р. У 1979 році закінчив з відзнакою Чернівецький державний університет за спеціальністю «Математика» (кваліфікація "Математик. Викладач"). У 1985 році захистив кандидатську дисертацію „Про локалізацію та стабілізацію розв’язків задачі Коші для диференціальних рівнянь у класах узагальнених функцій” за спеціальністю 01.01.01 – математичний аналіз (науковий керівник – член-кореспондент НАН України Горбачук М.Л.), а у 1995 році – докторську дисертацію „Множини початкових значень гладких розв’язків диференціально-операторних рівнянь параболічного типу” за спеціальністю 01.01.02 – диференціальні рівняння у Львівському університеті імені Івана Франка. Професор – з 1997 року. З 1996 по 2019 рр. очолював кафедру алгебри та геометрії, яку в 2004 році перейменовано на кафедру алгебри та інформатики.'
+  }
+);
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 3,
+    "characteristic": 'Завідувач кафедри, доктор фізико-математичних наук, професор. \n Закінчив Чернівецький державний університет в 1989 р. за спеціальністю "Прикладна математика" та здобув кваліфікацію "Математик". У 1989-1996 та 2001-2004 роках працював на кафедрі математичних проблем управління і кібернетики (МПУіК). Кандидатську дисертацію на тему “Управління і комп’ютерне моделювання дискретних систем з розгалуженням структур” за спеціальністю 01.05.02 – математичне моделювання та обчислювальні методи в наукових дослідженнях захистив у 1996 році. Напрям наукових досліджень – динамічні дискретні системи з розгалуженням структур, для яких розглядаються питання керованості, спостережності мінімаксного керування та комп’ютерного моделювання.'
+  }
+);
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 4,
+    "characteristic": 'Доцент, кандидат педагогічних наук. Закінчила Чернівецький національний університет імені Юрія Федьковича у 2004 р. за спеціальністю "Математика" (кваліфікація "Математик. Викладач") та Київський торговельно-економічний інститут Київського національного торговельно-економічного університету у 2011 р. за спеціальністю "Фінанси". Кандидатську дисертацію за темою «Комп`ютерно орієнтовна методична система навчання інформатики майбутніх економістів у вищих навчальних закладах» (спеціальність 13.00.02 - "Теорія та методика навчання (інформатика)") захистила в 2016 р. Вчене звання доцента кафедри комп`ютерних наук ЧНУ присвоєне в 2022 році.'
+  }
+);
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 5,
+    "characteristic": 'Доцент кафедри прикладної математики та інформаційних технологій. \n У 2001 році закінчив Чернівецький національний університет імені Юрія Федьковича і одержав диплом магістра математики (кваліфікація "Математик. Викладач"). У 2009 році захистив кандидатську дисертацію. У 2012 році отримав вчене звання доцента кафедри прикладної математики та інформаційних технологій.'
+  }
+);
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 6,
+    "characteristic": 'Доцент кафедри теоретичної фізики та комп`ютерного моделювання. \n У 1993 році закінчив математичний факультет (кафедра математичних проблем управління та кібернетики, спеціальність – прикладна математика) Чернiвецького державного унiверситету (ЧДУ) із червоним дипломом і у 1995 році - аспiрантуру при цьому унiверситетi (кафедра математичного моделювання, науковий керiвник – доктор фiз.-мат. наук, професор Ясинський В.К.).'
+  }
+);
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 7,
+    "characteristic": 'Доцент кафедри математичного аналізу. \n У 1994-1999 роках навчалася на кафедрі математичного моделювання математичного факультету Чернівецького національного університету. Закінчила університет у 1999 році за спеціальністю «Математика». У 2000-2003 роках навчалася в аспірантурі при кафедрі математичного моделювання під керівництвом проф., доктора фіз.-мат.наук  Івасишена С.Д.'
+  }
+);
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 8,
+    "characteristic": 'Асистент кафедри математичного аналізу. \n Закінчив кафедру прикладної математики у 2012 році (диплом магістра з відзнакою). Асистент і аспірант кафедри математичного моделювання. Напрям наукового дослідження: «Розв’язування лінійних крайових задач із запізненням методом сплайн-апроксимацій». У грудні 2018 року захистив кандидатську дисертацію на тему "Апроксимація розв`язків крайових задач для диференціально-різницевих рівнянь зі змінним запізненням".'
+  }
+);
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 9,
+    "characteristic": 'Асистент, кандидат фіз.-мат. наук. \n Закінчила Чернівецький національний університет ім. Ю.Федьковича в 2003 р. за спеціальність "Математика", здобула кваліфікацію "Математик. Викладач". Кандидатська дисертація на тему "Задача Коші для еволюційних рівнів з оператором узагальненого диференціювання та псевдо-Бесселевих операторів нескінченного порядку" (спеціальність 01.01.02 - диференціальне рівняння) захищена у 2009 р.'
+  }
+);
+db.TeachersCharacteristics.insertOne(
+  {
+    "teacherId": 10,
+    "characteristic": 'Асистент кафедри комп`ютерних наук. \n У 2003 році поступив на математичний факультет Чернівецького національного університету імені Юрія Федьковича. В 2008 році вступив на навчання до аспірантури Інситуту кібернетики НАН України. Під час навчання в аспірантурі працював над проблемою розпізнавання елементів дактильно-жестової мови. 23 грудня 2015 року захистив кандидатську дисертацію "Методи визначення ефективних ознак для розпізнавання елементів дактильно-жестової мови" на здобуття наукового ступеня кандидата технічних наук за спеціальністю 05.13.06 - Інформаційні технології.'
+  }
+);
